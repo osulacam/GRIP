@@ -261,9 +261,6 @@ public class MainWindowController {
       return;
     }
     Language lang = Language.get(fileChooser.getSelectedExtensionFilter().getDescription());
-    if (!file.toString().contains(".")){
-      file.renameTo(new File(file.getName() + "." + lang.filePath));
-    }
     Exporter exporter = new Exporter(pipeline.getSteps(), lang, file);
     Thread exportRunner = new Thread(exporter);
     exportRunner.setDaemon(true);
